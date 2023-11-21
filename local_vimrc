@@ -1,0 +1,86 @@
+" Bash info
+let g:BASH_AuthorName="steven"
+let g:BASH_Email="steven@xx.com"
+let g:BASH_Company="gnu"
+
+" Ctags command
+let Tlist_Ctags_Cmd='/usr/bin/ctags'
+
+" Tags file
+set tags+=/home/steven/tags
+
+let g:winManagerWindowLayout='FileExplorer|TagList'
+
+nmap wm :WMToggle<cr>
+nmap tl :Tlist<cr>
+
+
+" Manage Plugins
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'fatih/vim-go'
+
+Plugin 'majutsushi/tagbar'
+
+Plugin 'scrooloose/nerdtree'
+
+"Plugin 'Valloric/YouCompleteMe'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+
+" About Go
+let g:go_fmt_command="goimports"
+
+" vim-go custom mappings
+au FileType go nmap <leader>s <Plug>(go-implements)
+au FileType go nmap <leader>i <Plug>(go-info)
+au FileType go nmap <leader>gd <Plug>(go-doc)
+au FileType go nmap <leader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <leader>ds <Plug>(go-def-split)
+au FileType go nmap <leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <leader>dt <Plug>(go-def-tab)
+au FileType go nmap <leader>e <Plug>(go-rename)
+imap <F8> <C-x><C-o>
+
+let g:go_autodetect_gopath = 1
+let g:go_list_type = "quickfix"
+let g:go_version_warning = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_generate_tags = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_build_constraints = 1
+let g:godef_split=2
+
+
+" About Tagbar
+nmap tb :TagbarToggle<cr>
+let g:tagbar_ctags_bin='/usr/bin/ctags'
+let g:tagbar_width=30
+let g:tagbar_left=1
+
+
+" About NERDTree
+" open and close NERDTree
+map <F10> :NERDTreeToggle<CR>
+" Set width size
+"let NERDTreeWinSize=25
